@@ -1,0 +1,6 @@
+option(WITH_DYNAMIC_LINKING "" 0)
+if (WITH_DYNAMIC_LINKING)
+    set(BUILD_SHARED_LIBS ON)
+else()
+    set(BUILD_SHARED_LIBS OFF)
+endif ()
