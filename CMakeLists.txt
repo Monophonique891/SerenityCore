@@ -33,6 +33,14 @@ include(CheckPlatform)
 include(AutoCollect)
 include(GroupSources)
 
+if (NOT WITHOUT_GIT)
+    find_package(Git)
+endif ()
+
+find_package(MySQL OPTIONAL_COMPONENTS binary)
+
+include(CMake/GenRevision.cmake)
+
 include(CMake/ShowOptions.cmake)
 
 add_subdirectory(Dependencies)

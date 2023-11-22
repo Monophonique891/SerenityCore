@@ -26,7 +26,7 @@ GroupSources(${CMAKE_CURRENT_SOURCE_DIR})
 
 add_definitions(-DSERENITY_API_EXPORT_COMMON)
 
-add_library(Common
+add_library(SRYCommon
         ${PRIVATE_SOURCES}
 )
 
@@ -45,7 +45,7 @@ CollectIncludeDirectories(
     # Exclude
         ${CMAKE_CURRENT_SOURCE_DIR}/PrecompiledHeaders)
 
-target_include_directories(Common
+target_include_directories(SRYCommon
     PUBLIC
         # Provide the binary dir for all child targets
         ${CMAKE_BINARY_DIR}
@@ -53,7 +53,7 @@ target_include_directories(Common
     PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR})
 
-target_link_libraries(Common
+target_link_libraries(SRYCommon
         PRIVATE
         serenity-core-interface
         #[[
@@ -74,11 +74,12 @@ target_link_libraries(Common
 ]]#
         PUBLIC
             boost
+        mysql
 )
 
-#add_dependencies(common revision_data.h)
+add_dependencies(SRYCommon RevisionData.hpp)
 
-set_target_properties(Common
+set_target_properties(SRYCommon
         PROPERTIES
         FOLDER
         "Application")

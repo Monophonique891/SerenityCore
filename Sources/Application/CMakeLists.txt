@@ -38,7 +38,7 @@ target_link_libraries(Application
         PRIVATE
         serenity-core-interface
         PUBLIC
-        Common)
+        SRYCommon)
 
 CollectIncludeDirectories(
         ${CMAKE_CURRENT_SOURCE_DIR}
@@ -51,3 +51,7 @@ target_include_directories(Application
         ${PUBLIC_INCLUDES}
         PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR})
+
+set_target_properties(Application
+    PROPERTIES
+        FOLDER "Application")

@@ -13,5 +13,15 @@
     warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ]]#
 
+add_custom_target(RevisionData.hpp ALL
+        COMMAND "${CMAKE_COMMAND}" -DBUILDDIR="${CMAKE_BINARY_DIR}" -P "${CMAKE_SOURCE_DIR}/CMake/GenRevision.cmake" "${CMAKE_BINARY_DIR}"
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+)
+
+set_target_properties(RevisionData.hpp
+        PROPERTIES
+        FOLDER
+        "Application")
+
 add_subdirectory(Common)
 add_subdirectory(Application)
